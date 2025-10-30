@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="w-full">
     <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
       <legend class="fieldset-legend">Adicionando tutores</legend>
@@ -104,5 +105,11 @@ const adicionarTutor = async () => {
   }
 };
 </script>
+
+  <div>add edit.html</div>
+</template>
+
+<script setup></script>
+
 
 <style lang="scss" scoped></style>
