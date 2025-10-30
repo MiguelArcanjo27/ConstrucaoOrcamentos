@@ -12,6 +12,9 @@
 
 <script setup>
 import breadcrumbs from "@/components/breadcrumbs.vue";
+import { useRoute } from 'vue-router';
+const route = useRoute();
+console.log('ID:', route.params.id);
 </script>
 
 <style lang="scss" scoped></style>
