@@ -29,7 +29,8 @@
           </thead>
           <tbody>
             <!-- row 1 -->
-            <tr v-for="tutor in tutores" :key="tutor.id">
+            <tr v-for="item in tutores" :key="item.id"> {{ item }}
+
               <th>
                 <label>
                   <input type="checkbox" class="checkbox" />
@@ -46,16 +47,16 @@
                     </div>
                   </div>
                   <div>
-                    <div class="font-bold">{{ tutor.nome }}</div>
+                    <div class="font-bold">{{ item.nome }}</div>
                     <div class="text-sm opacity-50">
-                      {{ tutor.endereco.cidade ?? "Cliente sem cidade" }}
+                      {{ item.endereco.cidade ?? "Cliente sem cidade" }}
                     </div>
                   </div>
                 </div>
               </td>
               <td>
-                {{ tutor.endereco.logradouro }} {{ tutor.endereco.numero ?? "S/N" }}
-                {{ tutor.endereco.cep }} {{ tutor.endereco.complemento }}
+                {{ item.endereco.logradouro }} {{ item.endereco.numero ?? "S/N" }}
+                {{ item.endereco.cep }} {{ item.endereco.complemento }}
                 <br />
                 <span class="badge badge-ghost badge-sm"
                   >{{ tutor.endereco.cidade }}/{{ tutor.endereco.estado }}</span
@@ -97,7 +98,7 @@ onMounted(() => {
 const tutores = ref([]);
 
 const capturarTutores = async () => {
-  tutores.value = await db.collection("tutores").get();
+  tutores.value = await db.collection("tutores").get(key => true);
 };
 
 const router = useRouter();
