@@ -13,7 +13,7 @@ const router = createRouter({
       children: [
         { path: '', component: () => import('@/views/tutors/index.vue')},
         { path: ':id/edit', component: () => import('@/views/tutors/edit.vue')},
-        { path: ':id/show', component: () => import('@/views/tutors/show.vue')},
+        { path: ':id', component: () => import('@/views/tutors/show.vue')},
       ]
     }
   ],
