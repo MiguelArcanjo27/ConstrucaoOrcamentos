@@ -11,6 +11,7 @@
 </template>
 
 <script setup>
+<<<<<<< HEAD
 import { ref, onMounted } from 'vue'
 import ObraController from '../../controllers/ObraController'
 import { useRoute } from 'vue-router'
@@ -38,6 +39,15 @@ function enviarWhats() {
   window.open(`https://wa.me/?text=${msg}`, '_blank')
 }
 
+=======
+import breadcrumbs from "@/components/breadcrumbs.vue";
+<<<<<<< HEAD
+import { useRoute } from 'vue-router';
+const route = useRoute();
+console.log('ID:', route.params.id);
+=======
+>>>>>>> 87fd98366f348993d4ad19c3798811935b17db1f
+>>>>>>> 80e84edcc721443ed1dcaf33e48e42b2431bcbe8
 </script>
 
 <style lang="scss" scoped></style>

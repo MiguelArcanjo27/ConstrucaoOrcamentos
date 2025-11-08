@@ -12,6 +12,10 @@ const router = createRouter({
       path: '/tutors',
       children: [
         { path: '', component: () => import('@/views/tutors/index.vue')},
+<<<<<<< HEAD
+        { path: 'add', name: 'tutors.add', component: () => import('@/views/tutors/add.vue')},
+=======
+>>>>>>> 87fd98366f348993d4ad19c3798811935b17db1f
         { path: ':id/edit', component: () => import('@/views/tutors/edit.vue')},
         { path: ':id', component: () => import('@/views/tutors/show.vue')},
       ]

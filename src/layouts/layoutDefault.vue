@@ -2,7 +2,11 @@
   <!-- Layout principal -->
   <div class="flex">
     <!-- Sidebar (Menu Lateral) -->
+<<<<<<< HEAD
+    <div class="w-64" v-show="sidebarAberto">
+=======
     <div class="w-64">
+>>>>>>> 87fd98366f348993d4ad19c3798811935b17db1f
       <logo />
       <menu-lateral />
       
@@ -12,6 +16,9 @@
     <div class="flex flex-col flex-1 overflow-hidden">
       
       <!-- Navbar Superior -->
+<<<<<<< HEAD
+      <nav-bar v-model:estaAberto="sidebarAberto" />
+=======
       <div class="navbar bg-base-300 shadow">
         <img
           src="@/assets/images/iconeraio.png"
@@ -38,9 +45,14 @@
             </svg>
           </button>
         </div>
+<<<<<<< HEAD
         <!-- Controle de Tema -->
       <label class="toggle text-base-content">
   <input type="checkbox" value="black" class="theme-controller" />
+=======
+      </div>
+>>>>>>> 87fd98366f348993d4ad19c3798811935b17db1f
+>>>>>>> 80e84edcc721443ed1dcaf33e48e42b2431bcbe8
 
   <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor">
     <circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
@@ -230,10 +242,22 @@
 import { RouterView } from "vue-router";
 import menuLateral from "@/components/menuLateral.vue";
 import logo from "@/components/logo.vue";
+<<<<<<< HEAD
 
 
 
 
+=======
+<<<<<<< HEAD
+import navBar from "@/components/navBar.vue";
+import { onMounted, ref } from "vue";
+
+const sidebarAberto = ref(true);
+
+onMounted(() => {});
+=======
+>>>>>>> 87fd98366f348993d4ad19c3798811935b17db1f
+>>>>>>> 80e84edcc721443ed1dcaf33e48e42b2431bcbe8
 </script>
 
 <style lang="scss" scoped></style>
