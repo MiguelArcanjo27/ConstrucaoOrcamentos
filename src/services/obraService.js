@@ -1,27 +1,42 @@
-export default {
-    calcularMateriais(obra) {
-        const area = obra.largura * obra.cumprimento
-        const volume = area * obra.altura
+import ObraRepository from '@/repositories/ObraRepository';
+import Obra from '@/models/Obra';
 
-        let custoBase = 0
-        let materiais = []
+class ObraService {
+  async getAll() {
+    return ObraRepository.getAll();
+  }
 
-        switch (obra.tipo) {
-            case 'tijolo':
-                custoBase = 250
-                materiais = ['tijolos', 'cimento', 'areia']
-                break
-            case 'concreto':
-                custoBase = 400
-                materiais = ['concreto', 'brita', 'areia grossa']
-                break
-            case 'madeira':
-                custoBase = 300
-                materiais = ['madeira tratada', 'parafusos', 'verniz']
-                break
-        }
-        obra.custo = custoBase * volume
-        obra.materiais = materiais
-        return obra
-    }
+  async getById(id) {
+    return ObraRepository.findById(id);
+  }
+
+  async create(data) {
+    const obra = new Obra(
+      null,
+      data.nome,
+      data.endereco,
+      data.dataInicio,
+      parseFloat(data.orcamento),
+      data.status
+    );
+    return ObraRepository.add(obra);
+  }
+
+  async update(id, data) {
+    const obra = new Obra(
+      id,
+      data.nome,
+      data.endereco,
+      data.dataInicio,
+      parseFloat(data.orcamento),
+      data.status
+    );
+    return ObraRepository.update(id, obra);
+  }
+
+  async delete(id) {
+    ObraRepository.delete(id);
+  }
 }
+
+export default new ObraService();

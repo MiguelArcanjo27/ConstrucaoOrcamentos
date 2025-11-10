@@ -1,21 +1,26 @@
 <template>
-  <div>
-    <breadcrumbs>
-      <template v-slot:model> Tutores </template>
-      <template v-slot:action> Tutor </template>
-    </breadcrumbs>
-    <pre>
-      {{ $route.params.id }}
-    </pre>
+  <div v-if="obra">
+    <h1>Detalhes da Obra #{{ obra.id }}</h1>
+    <p>Tipo: {{ obra.tipo }}</p>
+    <p>Área: {{ obra.area }} m²</p>
+    <p>Volume: {{ obra.volume }} m³</p>
+    <p>Custo estimado: R$ {{ obra.custo }}</p>
+
+    <button @click="baixarPDF">Baixar PDF</button>
+    <button @click="enviarWhats">Enviar via WhatsApp</button>
+  </div>
+  <div v-else>
+    <p>Carregando...</p>
   </div>
 </template>
 
 <script setup>
-<<<<<<< HEAD
+
 import { ref, onMounted } from 'vue'
 import ObraController from '../../controllers/ObraController'
 import { useRoute } from 'vue-router'
 import jsPDF from 'jspdf'
+
 
 const route = useRoute()
 const obra = ref(null)
@@ -39,15 +44,9 @@ function enviarWhats() {
   window.open(`https://wa.me/?text=${msg}`, '_blank')
 }
 
-=======
-import breadcrumbs from "@/components/breadcrumbs.vue";
-<<<<<<< HEAD
-import { useRoute } from 'vue-router';
-const route = useRoute();
+
+
 console.log('ID:', route.params.id);
-=======
->>>>>>> 87fd98366f348993d4ad19c3798811935b17db1f
->>>>>>> 80e84edcc721443ed1dcaf33e48e42b2431bcbe8
 </script>
 
 <style lang="scss" scoped></style>

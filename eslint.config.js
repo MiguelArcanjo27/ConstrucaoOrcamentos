@@ -3,6 +3,7 @@ import globals from 'globals'
 import js from '@eslint/js'
 import pluginVue from 'eslint-plugin-vue'
 
+
 export default defineConfig([
   {
     name: 'app/files-to-lint',
@@ -22,3 +23,4 @@ export default defineConfig([
   js.configs.recommended,
   ...pluginVue.configs['flat/essential'],
 ])
+
