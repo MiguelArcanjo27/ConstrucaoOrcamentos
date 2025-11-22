@@ -1,14 +1,16 @@
 <template>
+  
   <nav class="flex-1 overflow-y-auto py-4 px-3">
-        <ul class="space-y-2">
-          <li>
-            <router-link to="/" class="flex items-center px-4 py-2 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-900 transition">
+    
+    <ul class="space-y-2">
+      <li>
+        <router-link to="/Ínicio" class="flex items-center px-4 py-2 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-900 transition">
               <i class="fas fa-home mr-3"></i> Início
             </router-link>
           </li>
           <li>
             
-            <router-link to="/profile" class="flex items-center px-4 py-2 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-900 transition">
+            <router-link to="/perfil" class="flex items-center px-4 py-2 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-900 transition">
               <i class="fas fa-user mr-3"></i> Meu Perfil
             </router-link>
           </li>
@@ -48,7 +50,7 @@
             </router-link>
           </li>
         </ul>
-
+        
         <div class="mt-8 pt-4 border-t border-gray-200">
           <h3 class="text-xs uppercase text-gray-500 font-semibold px-4 mb-3">Materiais</h3>
           <ul class="space-y-2">

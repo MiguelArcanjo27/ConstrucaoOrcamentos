@@ -1,16 +1,23 @@
-import ObraRepository from '@/repositories/ObraRepository';
+import { useObras } from '@/composable/useObras';
 import Obra from '@/models/Obra';
 
-class ObraService {
-  async getAll() {
-    return ObraRepository.getAll();
-  }
+export default function useObraService() {
 
-  async getById(id) {
-    return ObraRepository.findById(id);
-  }
+  const obraStore = useObras();
 
-  async create(data) {
+  const getAll = async () => {
+    return await obraStore.getAll();
+  };
+
+  const listarObras = () => {
+    return obraStore.getAll();
+  };
+
+  const findById = (id) => {
+    return obraStore.findById(id);
+  };
+
+  const create = async (data) => {
     const obra = new Obra(
       null,
       data.nome,
@@ -19,10 +26,10 @@ class ObraService {
       parseFloat(data.orcamento),
       data.status
     );
-    return ObraRepository.add(obra);
-  }
+    return obraStore.add(obra);
+  };
 
-  async update(id, data) {
+  const update = async (id, data) => {
     const obra = new Obra(
       id,
       data.nome,
@@ -31,12 +38,19 @@ class ObraService {
       parseFloat(data.orcamento),
       data.status
     );
-    return ObraRepository.update(id, obra);
-  }
+    return obraStore.update(id, obra);
+  };
 
-  async delete(id) {
-    ObraRepository.delete(id);
-  }
+  const remove = async (id) => {
+    return obraStore.remove(id);
+  };
+
+  return {
+    getAll,
+    findById,
+    create,
+    update,
+    remove,
+    listarObras
+  };
 }
-
-export default new ObraService();

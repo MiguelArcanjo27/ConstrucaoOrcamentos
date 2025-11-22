@@ -5,7 +5,7 @@ export default {
   name: 'App',
   components: {
     layoutDefault
-  }
+  },
 }
 
 </script>

@@ -1,7 +1,7 @@
 <template>
   <!-- Layout principal -->
   
-<div class="flex">
+<div class="flex flex-1">
  
   
   
@@ -9,8 +9,6 @@
   <div class="w-64" v-show="sidebarAberto">
     <logo />
     <menu-lateral />
-    
-
   </div>
 
   <!-- Conteúdo Principal -->
@@ -19,7 +17,26 @@
     
     
     <!-- Navbar Superior -->
-    <div class="w-full flex items-center bg-base-300 px-6 h-16 shadow ">
+    <div class="w-full flex items-center btn btn-info px-6 h-16 shadow ">
+      <div class="flex-none">
+          <!-- Botão para abrir/fechar o sidebar -->
+          <button class="btn btn-square btn-ghost" @click="toggleSidebar">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="inline-block h-5 w-5 stroke-current"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+   
       <img
         src="@/assets/images/iconeraio.png"
         alt="Banner"
@@ -45,72 +62,11 @@
     </div>
     <!-- Área de Conteúdo (Rotas) -->
     <main class="flex-1 overflow-y-auto p-6">
-      
-  <router-view>
-    
-        
-        <div class="overflow-x-auto">
-        <table class="min-w-full divide-y divide-gray-200 table">
-            <!-- head -->
-            
-            <thead class="bg-gray">
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" class="checkbox" />
-                  </label>
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Materiais
-            </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Quantidade
-            </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Descrição
-            </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-              Ação
-            </th>
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <!-- row 1 -->
-              <tr v-for="material in materiais" :key="material.id" class="hover:bg-gray-50">
-                <td class="px-6 py-4 whitespace-nowrap">
-              <div class="flex items-center">
-                <input type="radio" class="mr-3" />
-                <div class="flex-shrink-0 h-10 w-10">
-                  <img v-if="material.imagem" :src="material.imagem" :alt="material.nome" class="h-10 w-10 rounded" />
-                  <div v-else class="h-10 w-10 bg-gray-300 rounded flex items-center justify-center">
-                    <i class="fas fa-box text-gray-600"></i>
-                  </div>
-                </div>
-                <div class="ml-4">
-                  <div class="text-sm font-medium text-gray-900">{{ material.nome }}</div>
-                  <div class="text-sm text-gray-500">{{ material.categoria }}</div>
-                </div>
-              </div>
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-              {{ material.quantidade }}
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-              {{ material.descricao }}
-            </td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm">
-              <button @click="calcular(material)" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm">
-                Calcular
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </router-view>
-  <!-- Em React/Vue, você colocaria <Outlet /> ou <router-view> aqui -->
+      <RouterView />
     </main>
     
+  <!-- Em React/Vue, você colocaria <Outlet /> ou <router-view> aqui -->
+      
   </div>
 </div>
 </template>
@@ -120,12 +76,17 @@ import menuLateral from "@/components/menuLateral.vue";
 import logo from "@/components/logo.vue";
 import navBar from "@/components/navBar.vue";
 
+
 import { onMounted, ref } from "vue";
 import MaterialService from "@/services/MaterialService.js";
+import { RouterView } from "vue-router";
 
 
 const sidebarAberto = ref(true);
 const materiais = ref([]);
+const toggleSidebar = () => {
+  sidebarAberto.value = !sidebarAberto.value;
+};
 
 
 onMounted(async () => {
@@ -134,8 +95,9 @@ onMounted(async () => {
 
 function calcular(material) {
   alert(`Calculando para: ${material.nome}`);
-  // Aqui você pode redirecionar ou abrir modal
+  
 }
+
 
 </script>
 

@@ -1,5 +1,5 @@
 
-export class Obra {
+export default class Obra {
     constructor({ id, altura, largura, comprimento, tipo, custo = 0, materiais = [] }) {
     this.id = id
     this.altura = altura
@@ -10,5 +10,4 @@ export class Obra {
     this.materiais = materiais
   }
 }
-
 

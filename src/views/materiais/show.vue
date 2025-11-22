@@ -17,10 +17,9 @@
 <script setup>
 
 import { ref, onMounted } from 'vue'
-import ObraController from '../../controllers/ObraController'
+import ObraController from '@/Controller/ObraController.js'
 import { useRoute } from 'vue-router'
 import jsPDF from 'jspdf'
-
 
 const route = useRoute()
 const obra = ref(null)
@@ -44,9 +43,6 @@ function enviarWhats() {
   window.open(`https://wa.me/?text=${msg}`, '_blank')
 }
 
-
-
-console.log('ID:', route.params.id);
 </script>
 
 <style lang="scss" scoped></style>
