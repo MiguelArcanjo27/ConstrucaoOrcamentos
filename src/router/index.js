@@ -26,6 +26,7 @@ const router = createRouter({
       path: '/Ínicio',
       name: 'home',
       component: () => import('@/views/dashboard.vue'),
+      meta: { requiresAuth: true }
     },
     
     // Obras (protegido)
